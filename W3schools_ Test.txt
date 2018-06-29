@@ -48,7 +48,6 @@ And the grey navigation menu should be displayed with the following items:
 |REFERENCES|
 |EXAMPLES|
 
-
 Scenario: 2. Checking the layout and using a main function on large
 
 //Checking the home page
