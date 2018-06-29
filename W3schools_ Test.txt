@@ -1,10 +1,10 @@
 Feature: W3schools layout differences 
 As a tester 
-I want to compare the small and the large view of the W3school website
+I want to compare the small and the large view of the W3schools website
 So that I am going to see the most important differences
 
 Background:
-Given the W3school page is opened
+Given the W3schools page is opened
 Then the URL of the page should be the following:
 |https://www.w3schools.com/|
 And the green navigation bar should be present
@@ -32,7 +32,7 @@ Then the URL of the page should be the following:
 |https://www.w3schools.com/html/default.asp|
 And the title of the page should be the following:
 |HTML5 Tutorial|
-//It would be more practical to store it in a JSON file and create a step with "in small view... ...should be ok"
+//It would be more practical to store it in a JSON file and create a step with "...should be ok"
 And the grey navigation menu should be displayed with the following items:
 |HTML|
 |CSS|
