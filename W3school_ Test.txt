@@ -1,0 +1,74 @@
+Feature: W3schools layout differences 
+As a tester 
+I want to compare the small and the large view of the W3school website
+So that I am going to see the most important differences
+
+Background:
+Given the W3school page is opened
+Then the URL of the page should be the following:
+|https://www.w3schools.com/|
+And the green navigation bar should be present
+
+Scenario: 1. Checking the layout and using a main function on small
+
+//Checking the home page
+And the example boxes should not be displayed
+And the green navigation menu items should be within the hamburger menu
+And the left white menu should not be displayed
+And the text "THE WORLD'S LARGEST WEB DEVELOPER SITE" should not be displayed
+
+//Checking the green navigation menu items
+When the hamburger menu icon on the navigation bar is clicked
+Then the green navigation menu should have the following items:
+|TUTORIALS |
+|REFERENCES |
+|EXAMPLES |
+And there should be a close button at the top-right corner
+
+//Using the green navigation menu items
+When the link "TUTORIALS " is clicked
+And the link "Learn HTML" is clicked
+Then the URL of the page should be the following:
+|https://www.w3schools.com/html/default.asp|
+And the title of the page should be the following:
+|HTML5 Tutorial|
+//It would be more practical to store it in a JSON file and create a step with "in small view... ...should be ok"
+And the grey navigation menu should be displayed with the following items:
+|HTML|
+|CSS|
+|JAVASCRIPT|
+|SQL|
+|PHP|
+|BOOTSTRAP|
+|HOW TO|
+|JQUERY|
+|W3.CSS|
+|ANGULARJS|
+|MORE|
+|REFERENCES|
+|EXAMPLES|
+
+
+Scenario: 2. Checking the layout and using a main function on large
+
+//Checking the home page
+And the example boxes should be displayed
+And the green navigation menu items should not be within the hamburger menu
+And the left white menu should be displayed
+And the text "THE WORLD'S LARGEST WEB DEVELOPER SITE" should be displayed
+//Checking the green navigation menu items
+And the green navigation menu should have the following items:
+|TUTORIALS |
+|REFERENCES |
+|EXAMPLES |
+And there should be a close button at the top-right corner
+
+//Using the green navigation menu items
+When the link "TUTORIALS " is clicked
+And the link "Learn HTML" is clicked
+Then the URL of the page should be the following:
+|https://www.w3schools.com/html/default.asp|
+And the title of the page should be the following:
+|HTML5 Tutorial|
+And the grey navigation menu should be displayed with the following items:
+|MORE|
