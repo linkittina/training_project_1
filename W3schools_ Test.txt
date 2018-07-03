@@ -1,15 +1,15 @@
 Feature: W3schools layout differences 
 As a tester 
-I want to compare the small and the large view of the W3schools website
+I want to compare the phone and the desktop view of the W3schools website
 So that I am going to see the most important differences
 
 Background:
 Given the W3schools page is opened
-Then the URL of the page should be the following:
-|https://www.w3schools.com/|
+Then the URL of the page should be "https://www.w3schools.com/"
 And the green navigation bar should be present
 
-Scenario: 1. Checking the layout and using a main function on small
+@phone
+Scenario: 1. Checking the layout and using a main function on phone view
 
 # Checking the home page
 And the example boxes should not be displayed
@@ -48,7 +48,8 @@ And the grey navigation menu should be displayed with the following items:
 |REFERENCES|
 |EXAMPLES|
 
-Scenario: 2. Checking the layout and using a main function on large
+@desktop
+Scenario: 2. Checking the layout and using a main function on desktop view
 
 # Checking the home page
 And the example boxes should be displayed
@@ -63,7 +64,7 @@ And the green navigation menu should have the following items:
 And there should be a close button at the top-right corner
 
 # Using the green navigation menu items
-When the link "TUTORIALS " is clicked
+When the link "TUTORIALS" is clicked
 And the link "Learn HTML" is clicked
 Then the URL of the page should be the following:
 |https://www.w3schools.com/html/default.asp|
