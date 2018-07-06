@@ -1,83 +1,3 @@
-Feature: W3schools layout differences 
-As a tester 
-I want to compare the phone and the desktop view of the W3schools website
-So that I am going to see the most important differences
-
-Background:
-Given the W3schools page is opened
-Then the URL of the page should be "https://www.w3schools.com/"
-And the green navigation bar should be present
-
-@phone
-Scenario: 1. Checking the layout and using a main function on phone view
-
-# Checking the home page
-And the example boxes should not be displayed
-And the green navigation menu items should be within the hamburger menu
-And the left white menu should not be displayed
-And the text "THE WORLD'S LARGEST WEB DEVELOPER SITE" should not be displayed
-
-# Checking the green navigation menu items
-When the hamburger menu icon on the navigation bar is clicked
-Then the green navigation menu should have the following items:
-|TUTORIALS|
-|REFERENCES|
-|EXAMPLES|
-And there should be a close button at the top-right corner
-
-# Using the green navigation menu items
-When the link "TUTORIALS " is clicked
-And the link "Learn HTML" is clicked
-Then the URL of the page should be the following:
-|https://www.w3schools.com/html/default.asp|
-And the title of the page should be the following:
-|HTML5 Tutorial|
-# It would be more practical to store it in a JSON file and create a step with "...should be ok"
-And the grey navigation menu should be displayed with the following items:
-|HTML|
-|CSS|
-|JAVASCRIPT|
-|SQL|
-|PHP|
-|BOOTSTRAP|
-|HOW TO|
-|JQUERY|
-|W3.CSS|
-|ANGULARJS|
-|MORE|
-|REFERENCES|
-|EXAMPLES|
-
-@desktop
-Scenario: 2. Checking the layout and using a main function on desktop view
-
-# Checking the home page
-And the example boxes should be displayed
-And the green navigation menu items should not be within the hamburger menu
-And the left white menu should be displayed
-And the text "THE WORLD'S LARGEST WEB DEVELOPER SITE" should be displayed
-# Checking the green navigation menu items
-And the green navigation menu should have the following items:
-|TUTORIALS|
-|REFERENCES|
-|EXAMPLES|
-And there should be a close button at the top-right corner
-
-# Using the green navigation menu items
-When the link "TUTORIALS" is clicked
-And the link "Learn HTML" is clicked
-Then the URL of the page should be the following:
-|https://www.w3schools.com/html/default.asp|
-And the title of the page should be the following:
-|HTML5 Tutorial|
-And the grey navigation menu should be displayed with the following items:
-|MORE|
-
-
- """
- 
- Alternative version
-
 Feature: W3schools layout differences
   As a tester
   I want to compare the phone and the desktop view of the W3schools website
@@ -85,15 +5,12 @@ Feature: W3schools layout differences
 
   Scenario Outline: 1/<n>. Checking the layout and using a main function on phone view
     Given the W3schools page is opened
-    Then the URL of the page should be "https://www.w3schools.com/"
-    And the green navigation bar should be present
-  # Checking the home page on phone and on desktop
+    Then the green navigation bar should be present
     And the example boxes should be "<visibility_example>"
     And the green navigation menu items should be "<placing>" the hamburger menu
     And the left white menu should be "<visibility_white_menu>"
     And the text "THE WORLD'S LARGEST WEB DEVELOPER SITE" should be "<visibility_text>"
 
-  # Checking the green navigation menu items
     When the hamburger menu icon on the navigation bar is clicked
     Then the green navigation menu should have the following items:
       | TUTORIALS  |
@@ -101,7 +18,6 @@ Feature: W3schools layout differences
       | EXAMPLES   |
     And there should be a close button at the top-right corner
 
-  # Using the green navigation menu items
     When the link "<main_option>" is clicked
     And the link "<suboption>" is clicked
     Then the adress bar should contain "<url>" as a part of the URL
@@ -112,15 +28,15 @@ Feature: W3schools layout differences
     Examples:
       | n | visibility_example | placing | visibility_white_menu | visibility_text |
       | a | hidden             | within  | hidden                | hidden          |
+      
   @desktop
     Examples:
       | n | visibility_example | placing    | visibility_white_menu | visibility_text |
       | b | displayed          | not within | displayed             | displayed       |
-
+      
+ @desktop @phone
     Examples:
       | n | main_option | suboption    | url                         | title                          | sub_item   |
       | c | Tutorials   | Learn HTML   | /html/default.asp           | HTML5 Tutorial                 | HTML       |
       | d | References  | HTML UTF-8   | /charsets/ref_html_utf8.asp | HTML Unicode (UTF-8) Reference | References |
       | e | Examples    | XML Examples | /xml/xml_examples.asp       | XML Examples                   | More       |
-      
-      """
