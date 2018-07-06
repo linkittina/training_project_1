@@ -74,7 +74,9 @@ And the grey navigation menu should be displayed with the following items:
 |MORE|
 
 
- """Alternative version
+ """
+ 
+ Alternative version
 
 Feature: W3schools layout differences
   As a tester
@@ -119,4 +121,6 @@ Feature: W3schools layout differences
       | n | main_option | suboption    | url                         | title                          | sub_item   |
       | c | Tutorials   | Learn HTML   | /html/default.asp           | HTML5 Tutorial                 | HTML       |
       | d | References  | HTML UTF-8   | /charsets/ref_html_utf8.asp | HTML Unicode (UTF-8) Reference | References |
-      | e | Examples    | XML Examples | /xml/xml_examples.asp       | XML Examples                   | More       |"""
+      | e | Examples    | XML Examples | /xml/xml_examples.asp       | XML Examples                   | More       |
+      
+      """
