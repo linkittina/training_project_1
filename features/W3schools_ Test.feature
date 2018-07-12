@@ -9,9 +9,9 @@ Feature: W3schools layout differences
     And the example boxes should be <visibility_example>
     And the green navigation menu items should be <placing> the hamburger menu
     And the left white menu should be <visibility_white_menu>
-    And the text "THE WORLD'S LARGEST WEB DEVELOPER SITE" should be "<visibility_text>"
+    And the text "THE WORLD'S LARGEST WEB DEVELOPER SITE" should be <visibility_text>
 
-#    When the hamburger menu icon on the navigation bar is clicked
+    When the hamburger menu icon on the navigation bar is clicked
 #    Then the green navigation menu should have the following items:
 #      | TUTORIALS  |
 #      | REFERENCES |
