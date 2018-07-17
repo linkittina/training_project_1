@@ -8,6 +8,27 @@ module.exports = function () {
         })
     });
 
+    this.When(/^the "Tutorials" option is clicked$/, () => {
+        let hamburgerMenu = ".w3-bar> .w3-button > .fa";
+        let desktopOption = `//a[@id="navbtn_tutorials"]`;
+        let phoneOption = `//a[@onclick="open_xs_menu('tutorials');"]`;
+        const isPhone = () => driver.findElement(by.css(hamburgerMenu)).isDisplayed();
+        return isPhone().then(phone => {
+            //phone
+            if (phone) {
+                return driver.findElement(by.xpath(phoneOption)).click();
+            }
+            //desktop
+            else {
+                return driver.findElement(by.xpath(desktopOption)).click();
+            }
+        });
+    });
+
+    this.When(/^the very first option is clicked$/, () => {
+        return driver.findElement(by.css('.w3-margin-top + .w3-bar-item.w3-button',)).click();
+    });
+
     this.Then(/^the green navigation bar should be (present|hidden)$/, visibility => {
         return expect(driver.findElement(by.css('.w3-bar.w3-theme')).isDisplayed()).to.eventually.be.equal(visibility === 'present');
     });
@@ -41,12 +62,11 @@ module.exports = function () {
                 .then(result => expect(result.every(Boolean)).to.be.true)
         };
         let dataArray = getColumnOfDataTable(dataTable);
-        console.log(dataArray);
         return driver.findElement(by.css(hamburgerMenu)).isDisplayed().then((visibility) => {
-            console.log("Phone: ", visibility);
             //phone
             if (visibility) {
                 clickOn();
+                driver.sleep(1000);
                 checkVisibility();
             }
             //desktop
@@ -55,4 +75,17 @@ module.exports = function () {
             }
         });
     });
+
+    this.Then(/^the close button at the top-right corner should be ([^"]*)$/, visibility => {
+        return expect(driver.findElement(by.css('.w3-button.w3-xlarge.w3-right')).isDisplayed()).to.eventually.be.equal(visibility === 'displayed');
+    });
+
+    this.Then(/^the search icon should be (displayed|hidden)$/, visibility => {
+        return expect(driver.findElement(by.xpath('//a[@onclick="open_search(this)"]')).isDisplayed()).to.eventually.be.equal(visibility === 'displayed');
+    });
+
+    this.Then(/^the green home button should be (displayed|hidden)$/, visibility => {
+        return expect(driver.findElement(by.css('.w3-left.w3-btn')).isDisplayed()).to.eventually.be.equal(visibility === 'displayed');
+    });
+
 };

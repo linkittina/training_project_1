@@ -14,24 +14,19 @@ Feature: W3schools layout differences
       | TUTORIALS  |
       | REFERENCES |
       | EXAMPLES   |
-#    And there should be a close button at the top-right corner
-#
-#    When the main option <main_option> is clicked
-#    And the suboption "<suboption>" is clicked
-#    Then the adress bar should contain "<url>" as a part of the URL
-#    And the "<title>" should appear on the page
-#    And the grey navigation menu should contain "<sub_item>"
+    And the close button at the top-right corner should be <visibility_close>
+
+    When the "Tutorials" option is clicked
+    And the very first option is clicked
+    Then the search icon should be displayed
+    And the green home button should be displayed
 
   @desktop
     Examples:
-      | n | view    | visibility_example | placing    | visibility_white_menu | visibility_text | main_option | suboption    | url                         | title                          | sub_item   |
-      | a | desktop | displayed          | not within | displayed             | displayed       | TUTORIALS   | Learn HTML   | /html/default.asp           | HTML5 Tutorial                 | HTML       |
-      | b | desktop | displayed          | not within | displayed             | displayed       | REFERENCES  | HTML UTF-8   | /charsets/ref_html_utf8.asp | HTML Unicode (UTF-8) Reference | References |
-      | c | desktop | displayed          | not within | displayed             | displayed       | EXAMPLES    | XML Examples | /xml/xml_examples.asp       | XML Examples                   | More       |
+      | n | view    | visibility_example | placing    | visibility_white_menu | visibility_text | visibility_close |
+      | a | desktop | displayed          | not within | displayed             | displayed       | hidden           |
 
   @phone
     Examples:
-      | n | view  | visibility_example | placing | visibility_white_menu | visibility_text | main_option | suboption    | url                         | title                          | sub_item   |
-      | d | phone | hidden             | within  | hidden                | hidden          | TUTORIALS   | Learn HTML   | /html/default.asp           | HTML5 Tutorial                 | HTML       |
-      | e | phone | hidden             | within  | hidden                | hidden          | REFERENCES  | HTML UTF-8   | /charsets/ref_html_utf8.asp | HTML Unicode (UTF-8) Reference | References |
-      | f | phone | hidden             | within  | hidden                | hidden          | EXAMPLES    | XML Examples | /xml/xml_examples.asp       | XML Examples                   | More       |
+      | n | view  | visibility_example | placing | visibility_white_menu | visibility_text | visibility_close |
+      | b | phone | hidden             | within  | hidden                | hidden          | displayed        |
