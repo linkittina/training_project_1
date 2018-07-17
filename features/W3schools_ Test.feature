@@ -17,7 +17,7 @@ Feature: W3schools layout differences
     And the close button at the top-right corner should be <visibility_close>
 
     When the "Tutorials" option is clicked
-    And the very first option is clicked
+    And the very first sub-option is clicked
     Then the search icon should be displayed
     And the green home button should be displayed
 
